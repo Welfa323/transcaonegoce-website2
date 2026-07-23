@@ -1,0 +1,92 @@
+export const galleryImages = [
+  {
+    id: 1,
+    url: 'https://images.pexels.com/photos/14436364/pexels-photo-14436364.jpeg',
+    title: 'Plantation de Cacao',
+    category: 'Production',
+  },
+  {
+    id: 2,
+    url: 'https://images.pexels.com/photos/37062650/pexels-photo-37062650.jpeg',
+    title: 'Cabosses de Cacao',
+    category: 'Production',
+  },
+  {
+    id: 3,
+    url: 'https://images.pexels.com/photos/14681543/pexels-photo-14681543.jpeg',
+    title: 'Récolte de Cacao',
+    category: 'Production',
+  },
+  {
+    id: 4,
+    url: 'https://images.unsplash.com/photo-1573710661345-610f790e1218',
+    title: 'Cabosses Fraîches',
+    category: 'Production',
+  },
+  {
+    id: 5,
+    url: 'https://images.unsplash.com/photo-1665597681049-39532eed2661',
+    title: 'Plantation Durable',
+    category: 'Durabilité',
+  },
+  {
+    id: 6,
+    url: 'https://images.unsplash.com/photo-1493925410384-84f842e616fb',
+    title: 'Fèves de Cacao',
+    category: 'Production',
+  },
+  {
+    id: 7,
+    url: 'https://images.unsplash.com/photo-1507576164121-220762647800',
+    title: 'Séchage Traditionnel',
+    category: 'Transformation',
+  },
+  {
+    id: 8,
+    url: 'https://images.pexels.com/photos/31148393/pexels-photo-31148393.jpeg',
+    title: 'Produits Premium',
+    category: 'Produits',
+  },
+  {
+    id: 9,
+    url: 'https://images.pexels.com/photos/7178310/pexels-photo-7178310.jpeg',
+    title: 'Installation Industrielle',
+    category: 'Infrastructure',
+  },
+  {
+    id: 10,
+    url: 'https://images.pexels.com/photos/6537735/pexels-photo-6537735.jpeg',
+    title: 'Complexe Industriel',
+    category: 'Infrastructure',
+  },
+  {
+    id: 11,
+    url: 'https://images.pexels.com/photos/37466061/pexels-photo-37466061.jpeg',
+    title: 'Contrôle Qualité',
+    category: 'Qualité',
+  },
+  {
+    id: 12,
+    url: 'https://images.pexels.com/photos/34054493/pexels-photo-34054493.jpeg',
+    title: 'Laboratoire',
+    category: 'Qualité',
+  },
+  {
+    id: 13,
+    url: 'https://images.pexels.com/photos/33015766/pexels-photo-33015766.jpeg',
+    title: 'Grains de Café',
+    category: 'Produits',
+  },
+  {
+    id: 14,
+    url: 'https://images.pexels.com/photos/36631827/pexels-photo-36631827.jpeg',
+    title: 'Noix de Cajou',
+    category: 'Produits',
+  },
+  {
+    id: 15,
+    url: 'https://images.pexels.com/photos/34424388/pexels-photo-34424388.jpeg',
+    title: 'Anacarde Premium',
+    category: 'Produits',
+  },
+];
