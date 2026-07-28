@@ -123,7 +123,7 @@ const Sustainability = () => {
         
         <div className="relative max-w-[1280px] mx-auto px-8 h-full flex items-center">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D79A12]/20 backdrop-blur-sm rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-full mb-2">
               <Leaf size={20} strokeWidth={1.5} className="text-[#D79A12]" />
               <span className="text-[#D79A12] font-semibold text-sm">RSE & DÉVELOPPEMENT DURABLE</span>
             </div>
@@ -200,12 +200,12 @@ const Sustainability = () => {
 
           <div className="space-y-8">
             {combats.map((combat, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300">
-                <div className="flex items-start gap-6">
+              <div key={index} className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-300">
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-[#D79A12]/10 rounded-2xl flex-shrink-0">
                     <combat.icon size={32} strokeWidth={1.5} className="text-[#D79A12]" />
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 w-full">
                     <h3 className="text-xl font-bold text-[#2E7D32] mb-4">{combat.title}</h3>
                     <div className="space-y-3">
                       {combat.points.map((point, idx) => (
@@ -225,10 +225,10 @@ const Sustainability = () => {
 
       {/* Certification Section */}
       <div className="bg-white py-16">
-        <div className="max-w-[1280px] mx-auto px-8">
-          <div className="bg-gradient-to-br from-[#2E7D32]/5 to-[#D79A12]/5 rounded-2xl p-12 flex items-center gap-12">
-            <div className="inline-flex items-center justify-center w-32 h-32 bg-white rounded-2xl shadow-lg flex-shrink-0">
-              <Award size={64} strokeWidth={1.5} className="text-[#2E7D32]" />
+        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+          <div className="bg-gradient-to-br from-[#2E7D32]/5 to-[#D79A12]/5 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center text-center md:text-left gap-8 md:gap-12">
+            <div className="inline-flex items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-white rounded-2xl shadow-lg flex-shrink-0">
+              <Award strokeWidth={1.5} className="text-[#2E7D32] w-12 h-12 md:w-16 md:h-16" />
             </div>
             <div className="flex-1">
               <div className="inline-block px-4 py-1 bg-[#D79A12] text-white text-sm font-semibold rounded-full mb-4">

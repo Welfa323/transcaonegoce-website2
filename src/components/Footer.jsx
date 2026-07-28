@@ -30,7 +30,7 @@ const Footer = () => {
               className="h-16 w-auto mb-6"
             />
             <p className="text-white/80 mb-6" style={{ lineHeight: '170%' }}>
-              Leader dans le négoce de cacao, café et anacarde en Côte d'Ivoire. Excellence, transparence et innovation depuis des décennies.
+              Leader dans le négoce de cacao et café en Côte d'Ivoire, plus proche des planteurs. Excellence, transparence et innovation depuis des décennies.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (

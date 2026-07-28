@@ -23,7 +23,7 @@ const About = () => {
       year: '2024',
       title: '3 Usines de Conditionnement',
       description: 'Treichville, PK24 et San-Pedro opérationnels',
-    },
+    }
   ];
 
   const values = [
@@ -63,10 +63,26 @@ const About = () => {
   ];
 
   const socialProjects = [
-    'Construction d\'écoles en milieu rural',
-    'Centres de santé communautaires',
-    'Hydraulique villageoise',
-    'Autonomisation économique des femmes',
+    {
+      title: 'Infrastructures communautaires',
+      description: "Construction d'écoles, de centres de santé et projets d'hydraulique villageoise pour garantir l'accès à l'eau potable.",
+      icon: Building2
+    },
+    {
+      title: 'Autonomisation des femmes',
+      description: "Création d'opportunités de revenus alternatifs pour renforcer la résilience économique des ménages agricoles.",
+      icon: Users
+    },
+    {
+      title: 'Conditions de vie et de travail',
+      description: "Assurance d'un prix rémunérateur et de partenariats commerciaux avantageux, soutenus par la certification RainForest Alliance.",
+      icon: Heart
+    },
+    {
+      title: 'Partenariat GCB Cocoa',
+      description: "Renforcement par des standards internationaux de durabilité (SSRTE) suite à l'entrée du groupe malaisien au capital en 2024.",
+      icon: Target
+    }
   ];
 
   return (
@@ -101,9 +117,9 @@ const About = () => {
       </div>
 
       {/* Introduction */}
-      <div className="py-16">
-        <div className="max-w-[1280px] mx-auto px-8">
-          <div className="bg-white rounded-2xl p-12 shadow-lg">
+      <div className="py-14">
+        <div className="max-w-[1280px] mx-auto px-4">
+          <div className="bg-white rounded-2xl xl:p-12 lg:p-12 md:p-12 p-6 shadow-lg">
             <p className="text-lg text-[#5D4037] mb-6" style={{ lineHeight: '170%' }}>
               <strong className="text-[#2E7D32]">TRANSCAO NEGOCE</strong>, société anonyme unipersonnelle avec à sa tête un gérant, a été créée en octobre 2019 pour assurer un prix rémunérateur aux producteurs, améliorer leurs conditions de vie et valoriser la qualité du café-cacao ivoirien.
             </p>
@@ -147,22 +163,24 @@ const About = () => {
               Notre Histoire
             </h2>
           </div>
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#2E7D32]/20"></div>
-            <div className="space-y-12">
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute left-[38px] md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 bg-[#2E7D32]/20"></div>
+            <div className="space-y-8 md:space-y-12">
               {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center gap-8 ${index % 2 === 0 ? '' : 'flex-row-reverse'}`}>
-                  <div className={`flex-1 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                    <div className="bg-white rounded-2xl p-8 shadow-lg inline-block">
+                <div key={index} className={`relative flex items-center justify-start ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                  
+                  <div className="absolute left-[28px] md:left-1/2 transform md:-translate-x-1/2 z-10">
+                    <div className="w-6 h-6 bg-[#2E7D32] rounded-full border-4 border-[#FAFAF8] shadow-md"></div>
+                  </div>
+
+                  <div className={`w-full md:w-1/2 pl-[80px] md:pl-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                    <div className={`bg-white rounded-2xl p-6 md:p-8 shadow-lg inline-block w-full ${index % 2 === 0 ? 'md:text-right text-left' : 'text-left'}`}>
                       <div className="text-3xl font-bold text-[#D79A12] mb-2">{milestone.year}</div>
                       <h3 className="text-xl font-bold text-[#2E7D32] mb-2">{milestone.title}</h3>
                       <p className="text-[#5D4037]" style={{ lineHeight: '170%' }}>{milestone.description}</p>
                     </div>
                   </div>
-                  <div className="relative z-10">
-                    <div className="w-6 h-6 bg-[#2E7D32] rounded-full border-4 border-white shadow-lg"></div>
-                  </div>
-                  <div className="flex-1"></div>
+
                 </div>
               ))}
             </div>
@@ -205,11 +223,16 @@ const About = () => {
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {socialProjects.map((project, index) => (
-                <div key={index} className="flex items-center gap-4 bg-white rounded-xl p-6">
-                  <div className="w-12 h-12 bg-[#2E7D32]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Heart size={24} strokeWidth={1.5} className="text-[#2E7D32]" />
+                <div key={index} className="flex items-start gap-4 bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-12 h-12 bg-[#2E7D32]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <project.icon size={24} strokeWidth={1.5} className="text-[#2E7D32]" />
                   </div>
-                  <span className="text-[#5D4037] font-medium">{project}</span>
+                  <div>
+                    <h3 className="text-lg font-bold text-[#2E7D32] mb-2">{project.title}</h3>
+                    <p className="text-[#5D4037] text-sm" style={{ lineHeight: '160%' }}>
+                      {project.description}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>

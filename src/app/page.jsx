@@ -5,20 +5,22 @@ import { ArrowRight, Award, Globe, Shield, TrendingUp, Users, Factory, Leaf } fr
 
 const Home = () => {
   const stats = [
-    { value: '20+', label: 'Années d\'Expérience', icon: Award },
-    { value: '15+', label: 'Partenaires Internationaux', icon: Globe },
-    { value: '100+', label: 'Coopératives', icon: Users },
+    { value: '7+', label: 'Années d\'Expérience', icon: Award },
+    { value: '11+', label: 'Partenaires Internationaux', icon: Globe },
+    { value: '35+', label: 'Coopératives', icon: Users },
     { value: '3', label: 'Sites de Production', icon: Factory },
   ];
 
   const partners = [
-    { name: 'Conseil du Café-Cacao', logo: '/partners/ccc.png' },
-    { name: 'CNRA', logo: '/partners/cnra.png' },
-    { name: 'Touton', logo: '/partners/touton.png' },
-    { name: 'Sucres et Denrées', logo: '/partners/sucres.png' },
-    { name: 'Cargill', logo: '/partners/cargill.png' },
-    { name: 'Barry Callebaut', logo: '/partners/barry.png' },
-  ];
+              { name: 'Conseil du Café-Cacao', logo: '/partners/conseil-cafe-cacao.jpg' },
+              { name: 'CNRA', logo: '/partners/cnra.png' },
+              { name: 'Touton', logo: '/partners/touton.jpg' },
+              { name: 'Sucres et Denrées', logo: '/partners/sucres-denrees.png' },
+              { name: 'Cargill', logo: '/partners/cargill.jpg' },
+              { name: 'Barry Callebaut', logo: '/partners/barry-callebaut.png' },
+              { name: 'AGL Group', logo: '/partners/agl-group.png' },
+              { name: 'Olam', logo: '/partners/olam.jpg' },
+            ];
 
   const values = [
     {
@@ -68,7 +70,7 @@ const Home = () => {
             <p className="text-xl text-white/90 mb-8" style={{ lineHeight: '170%' }}>
               Société d'exportation de café-cacao, nous connectons les producteurs locaux aux marchés internationaux avec excellence et transparence.
             </p>
-            <div className="flex gap-4">
+            <div className="flex xl:flex-row lg:flex-row md:flex-row w-fit flex-col    gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#2E7D32] text-white font-semibold rounded-lg hover:bg-[#265D28] transition-all duration-200 shadow-md hover:shadow-lg"
@@ -146,16 +148,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { name: 'Conseil du Café-Cacao', logo: '/partners/conseil-cafe-cacao.jpg' },
-              { name: 'CNRA', logo: '/partners/cnra.png' },
-              { name: 'Touton', logo: '/partners/touton.jpg' },
-              { name: 'Sucres et Denrées', logo: '/partners/sucres-denrees.png' },
-              { name: 'Cargill', logo: '/partners/cargill.jpg' },
-              { name: 'Barry Callebaut', logo: '/partners/barry-callebaut.png' },
-              { name: 'AGL Group', logo: '/partners/agl-group.png' },
-              { name: 'Olam', logo: '/partners/olam.jpg' },
-            ].map((partner, index) => (
+            {partners.map((partner, index) => (
               <div
                 key={index}
                 className="bg-white rounded-2xl p-8 border border-[#E5E7EB] hover:border-[#2E7D32] hover:shadow-lg transition-all duration-300 flex items-center justify-center"

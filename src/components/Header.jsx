@@ -32,6 +32,7 @@ const Header = () => {
       <div className="max-w-[1440px] mx-auto px-8">
         {/* Top Bar with Social Links */}
         <div className="flex justify-end items-center py-3 border-b border-[#E5E7EB]">
+          <p className="pr-5 text-sm text-[#eea507] ">Plus Proche des Planteurs</p>
           <div className="flex gap-4">
             {socialLinks.map((social, index) => (
               <a
@@ -58,6 +59,7 @@ const Header = () => {
               className="h-14 w-auto"
             />
           </Link>
+          
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-2">
