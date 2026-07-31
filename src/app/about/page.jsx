@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { Building2, Users, Target, Heart, Award, MapPin } from 'lucide-react';
 
 const About = () => {
@@ -89,16 +90,18 @@ const About = () => {
     <div className="min-h-screen bg-[#FAFAF8]">
       {/* Hero Section */}
       <div className="relative h-[600px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://customer-assets.emergentagent.com/job_cocoa-commerce-7/artifacts/9e6fjg1w_482960816_609902805224312_4344529248571558251_n.jpg)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32]/95 via-[#2E7D32]/85 to-[#2E7D32]/70"></div>
+        <div className="absolute inset-0">
+          <Image
+            src="https://customer-assets.emergentagent.com/job_cocoa-commerce-7/artifacts/9e6fjg1w_482960816_609902805224312_4344529248571558251_n.jpg"
+            alt="Hero"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32]/95 via-[#2E7D32]/85 to-[#2E7D32]/70 z-10"></div>
         </div>
 
-        <div className="relative max-w-[1280px] mx-auto px-8 h-full flex items-center">
+        <div className="relative z-20 max-w-[1280px] mx-auto px-8 h-full flex items-center">
           <div className="max-w-3xl">
             <div className="inline-block backdrop-blur-sm rounded-full mb-6">
               <span className="text-[#e7a005] font-semibold text-md">NOTRE HISTOIRE</span>

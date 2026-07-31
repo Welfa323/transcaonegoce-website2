@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaYoutube } from 'react-icons/fa';
 import { useToast } from '@/hooks/use-toast';
@@ -210,7 +211,14 @@ const Contact = () => {
             <div className="space-y-6">
               {locations.map((location, index) => (
                 <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                  <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${location.image})` }}></div>
+                  <div className="h-48 relative overflow-hidden">
+                    <Image
+                      src={location.image}
+                      alt={location.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="p-6">
                      <h3 className="text-xl font-bold text-[#2E7D32] mb-3">{location.name}</h3>
                     <div className="space-y-2 text-sm text-[#5D4037]">

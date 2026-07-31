@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Award, Globe, Shield, TrendingUp, Users, Factory, Leaf } from 'lucide-react';
 
 const Home = () => {
@@ -49,12 +50,14 @@ const Home = () => {
     <div className="min-h-screen bg-[#FAFAF8]">
       {/* Hero Section */}
       <div className="relative h-[600px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1493925410384-84f842e616fb?crop=entropy&cs=srgb&fm=jpg&q=85)',
-          }}
-        >
+        <div className="absolute inset-0">
+          <Image 
+            src="https://images.unsplash.com/photo-1493925410384-84f842e616fb?crop=entropy&cs=srgb&fm=jpg&q=85"
+            alt="Hero"
+            fill
+            priority
+            className="object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
         </div>
 
@@ -151,12 +154,13 @@ const Home = () => {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-8 border border-[#E5E7EB] hover:border-[#2E7D32] hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+                className="bg-white rounded-2xl p-8 border border-[#E5E7EB] hover:border-[#2E7D32] hover:shadow-lg transition-all duration-300 flex items-center justify-center relative h-36"
               >
-                <img
+                <Image
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-w-full h-auto max-h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  fill
+                  className="object-contain grayscale hover:grayscale-0 transition-all duration-300 p-6"
                 />
               </div>
             ))}

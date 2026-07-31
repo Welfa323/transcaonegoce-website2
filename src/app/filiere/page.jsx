@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { Coffee, Leaf, TrendingUp, Users, ArrowRight, Link as LinkIcon } from 'lucide-react';
 import Link from 'next/link';
 import {
@@ -218,16 +219,18 @@ const Filiere = () => {
     <div className="min-h-screen bg-[#FAFAF8]">
       {/* Hero Section */}
       <div className="relative h-[500px] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1573710661345-610f790e1218?q=85)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1573710661345-610f790e1218?q=85"
+            alt="Hero"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40 z-10"></div>
         </div>
         
-        <div className="relative max-w-[1280px] mx-auto px-8 h-full flex items-center">
+        <div className="relative z-20 max-w-[1280px] mx-auto px-8 h-full flex items-center">
           <div className="max-w-3xl">
             <h1 className="text-6xl font-bold text-white mb-6" style={{ letterSpacing: '-0.02em', lineHeight: '110%' }}>
               La Filière Café-Cacao
@@ -287,11 +290,13 @@ const Filiere = () => {
                   </div>
                 </div>
                 <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                  <div className="rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                    <div 
-                      className="w-full h-full bg-cover bg-center transform hover:scale-105 transition-transform duration-500"
-                      style={{ backgroundImage: `url(${sector.image})` }}
-                    ></div>
+                  <div className="rounded-2xl overflow-hidden shadow-xl h-[400px] relative">
+                    <Image
+                      src={sector.image}
+                      alt={sector.title}
+                      fill
+                      className="object-cover transform hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 </div>
               </div>

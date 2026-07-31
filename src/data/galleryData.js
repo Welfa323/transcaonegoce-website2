@@ -77,16 +77,16 @@ export const galleryImages = [
     title: 'Grains de Café',
     category: 'Produits',
   },
-  {
-    id: 14,
-    url: 'https://images.pexels.com/photos/36631827/pexels-photo-36631827.jpeg',
-    title: 'Noix de Cajou',
-    category: 'Produits',
-  },
-  {
-    id: 15,
-    url: 'https://images.pexels.com/photos/34424388/pexels-photo-34424388.jpeg',
-    title: 'Anacarde Premium',
-    category: 'Produits',
-  },
+  // {
+  //   id: 14,
+  //   url: 'https://images.pexels.com/photos/36631827/pexels-photo-36631827.jpeg',
+  //   title: 'Noix de Cajou',
+  //   category: 'Produits',
+  // },
+  // {
+  //   id: 15,
+  //   url: 'https://images.pexels.com/photos/34424388/pexels-photo-34424388.jpeg',
+  //   title: 'Anacarde Premium',
+  //   category: 'Produits',
+  // },
 ];

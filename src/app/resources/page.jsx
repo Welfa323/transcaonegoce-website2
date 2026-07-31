@@ -1,58 +1,74 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { Factory, Users, Award, ArrowRight, CheckCircle } from 'lucide-react';
+import Image from 'next/image';
+import { Factory, Users, Award, ArrowRight, CheckCircle, MapPin } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const Resources = () => {
   const factories = [
     {
-      name: 'Site de Treichville',
-      location: 'Abidjan, Zone Portuaire',
-      capacity: '50,000 tonnes/an',
-      activities: ['Réception', 'Stockage', 'Contrôle Qualité', 'Exportation'],
-      image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=85',
-    },
-    {
-      name: 'Complexe PK24',
-      location: 'Autoroute du Nord',
-      capacity: '100,000 tonnes/an',
-      activities: ['Transformation', 'Conditionnement', 'Stockage', 'Laboratoire'],
+      name: 'Complexe Industriel PK24',
+      location: 'Anyama / Abidjan',
+      capacity: 'Stockage: 160 000T | Transfo: 50 000T',
+      description: "Inauguré en juin 2025, c'est le cœur opérationnel du groupe. Il comprend un entrepôt (jusqu'à 2 500 T/j en déchargement) et une usine de broyage (extensible à 110 000 T) avec un centre de formation.",
+      activities: ['Stockage (160 000 T)', 'Transformation (50 000 T/an)', 'Centre de formation', 'Déchargement rapide'],
       image: 'https://images.unsplash.com/photo-1684695749267-233af13276d0?q=85',
     },
     {
-      name: 'Site de San-Pedro',
-      location: 'Zone Industrielle',
-      capacity: '75,000 tonnes/an',
-      activities: ['Collecte', 'Traitement', 'Stockage', 'Exportation'],
+      name: 'Usine de Treichville',
+      location: 'Abidjan, Zone Portuaire',
+      capacity: 'Stockage & Exportation',
+      description: "Site historique en zone portuaire, dédié au stockage et à l'exportation. Il joue un rôle logistique crucial avec 15 à 20 camions par jour en synergie avec PK24.",
+      activities: ['Stockage & Exportation', 'Synergie logistique avec PK24', 'Déchargement (15-20 camions/j)', 'Zone portuaire'],
+      image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?q=85',
+    },
+    {
+      name: 'Complexe Transcao Seweke',
+      location: 'San-Pedro',
+      capacity: 'Stockage: 160 000T | Transfo: 50 000T',
+      description: "Situé dans la 1ère zone portuaire exportatrice au monde, ce site est dimensionné pour la transformation et le stockage afin de soutenir l'objectif national de 100 000 T/an.",
+      activities: ['Transformation (50 000 T/an)', 'Stockage prévu (160 000 T)', 'Objectif national (100 000 T/an)', 'Exportation directe'],
       image: 'https://images.pexels.com/photos/236709/pexels-photo-236709.jpeg',
     },
   ];
 
-  const cooperatives = [
-    {
-      region: 'Ouest',
-      count: 35,
-      producers: '5,200+',
-      production: 'Cacao, Café',
-    },
-    {
-      region: 'Sud',
-      count: 28,
-      producers: '4,100+',
-      production: 'Cacao',
-    },
-    {
-      region: 'Centre',
-      count: 22,
-      producers: '3,800+',
-      production: 'Café, Anacarde',
-    },
-    {
-      region: 'Nord',
-      count: 15,
-      producers: '2,500+',
-      production: 'Anacarde',
-    },
+  const cooperativesList = [
+    { id: 1, name: "SCOOPASAB COOP CA", location: "DIVO" },
+    { id: 2, name: "COOP-CA-UJPF", location: "FACOBLY" },
+    { id: 3, name: "SOCOOPAKAF COOP-CA", location: "ABOISSO" },
+    { id: 4, name: "COOP-CA COOPRAD", location: "DUEKOUE" },
+    { id: 5, name: "SOCOLA COOP CA", location: "ABOISSO" },
+    { id: 6, name: "SCOOPS-ANA-DUE", location: "DUEKOUE" },
+    { id: 7, name: "SCOOPS COOPATHS", location: "DALOA" },
+    { id: 8, name: "NCB COOP CA", location: "BLOLEQUIN" },
+    { id: 9, name: "ECOOPAD-COOP-CA", location: "BANGOLO" },
+    { id: 10, name: "SCOOPS-LA-PAIX", location: "KOUIBLY" },
+    { id: 11, name: "SCAW COOP-CA", location: "MAN" },
+    { id: 12, name: "COOP-CA UPGF", location: "GUEZON" },
+    { id: 13, name: "SOCODAN COOP CA", location: "DANANE" },
+    { id: 14, name: "SOCAN-COOP-CA", location: "DANANE" },
+    { id: 15, name: "SOCOPA BINKADI", location: "DANANE" },
+    { id: 16, name: "SCOOPS BADEGNAN", location: "BLOLEQUIN" },
+    { id: 17, name: "SCOOPS BADEMAYA", location: "DANANE" },
+    { id: 18, name: "SCOOPS-CI", location: "GAGNOA" },
+    { id: 19, name: "COOP-CA ENDINMIN", location: "MAN" },
+    { id: 20, name: "COOP-CA COOTIEN OULA", location: "GUEZON" },
+    { id: 21, name: "COOP CA ENTENTE", location: "TOULEPLEU" },
+    { id: 22, name: "SCOOPS-SCAT", location: "KOUIBLY" },
+    { id: 23, name: "SCOOPS-SCAK", location: "KOUIBLY" },
+    { id: 24, name: "SCOOPS-AMG", location: "GUIGLO" },
+    { id: 25, name: "Z.P.A", location: "GAGNOA" },
+    { id: 26, name: "SCOOPS CAPROCA", location: "GUIGLO" },
+    { id: 27, name: "BARA CACAO", location: "DOUEKOUE" },
+    { id: 28, name: "SCCG", location: "MAN" },
   ];
 
   const certifications = [
@@ -61,21 +77,21 @@ const Resources = () => {
       description: 'Certification pour une agriculture durable et responsable',
       year: '2018',
     },
-    {
-      name: 'UTZ Certified',
-      description: 'Programme de durabilité pour le cacao et le café',
-      year: '2019',
-    },
-    {
-      name: 'ISO 9001',
-      description: 'Management de la qualité',
-      year: '2020',
-    },
-    {
-      name: 'Fair Trade',
-      description: 'Commerce équitable certifié',
-      year: '2021',
-    },
+    // {
+    //   name: 'UTZ Certified',
+    //   description: 'Programme de durabilité pour le cacao et le café',
+    //   year: '2019',
+    // },
+    // {
+    //   name: 'ISO 9001',
+    //   description: 'Management de la qualité',
+    //   year: '2020',
+    // },
+    // {
+    //   name: 'Fair Trade',
+    //   description: 'Commerce équitable certifié',
+    //   year: '2021',
+    // },
   ];
 
   return (
@@ -111,28 +127,34 @@ const Resources = () => {
             {factories.map((factory, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col"
               >
-                <div 
-                  className="h-64 bg-cover bg-center relative overflow-hidden"
-                  style={{ backgroundImage: `url(${factory.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
+                <div className="h-64 flex-shrink-0 relative overflow-hidden">
+                  <Image
+                    src={factory.image}
+                    alt={factory.name}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+                  <div className="absolute bottom-6 left-6 right-6 z-20">
                     <h3 className="text-2xl font-bold text-white mb-2">{factory.name}</h3>
                     <p className="text-white/80 text-sm">{factory.location}</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-semibold text-[#6B7280]">CAPACITÉ</span>
-                    <span className="text-lg font-bold text-[#D79A12]">{factory.capacity}</span>
+                <div className="p-6 flex flex-col flex-grow">
+                  <div className="flex flex-col mb-4">
+                    <span className="text-xs font-semibold text-[#6B7280] mb-1 uppercase">Capacité / Rôle</span>
+                    <span className="text-sm font-bold text-[#D79A12]">{factory.capacity}</span>
                   </div>
-                  <div className="space-y-2">
+                  {factory.description && (
+                    <p className="text-sm text-[#6B7280] mb-6">{factory.description}</p>
+                  )}
+                  <div className="space-y-2 mt-auto">
                     {factory.activities.map((activity, idx) => (
                       <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle size={16} strokeWidth={1.5} className="text-[#2E7D32]" />
-                        <span className="text-sm text-[#5D4037]">{activity}</span>
+                        <CheckCircle size={16} strokeWidth={1.5} className="text-[#2E7D32] flex-shrink-0" />
+                        <span className="text-sm text-[#5D4037] font-medium">{activity}</span>
                       </div>
                     ))}
                   </div>
@@ -158,35 +180,55 @@ const Resources = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {cooperatives.map((coop, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-[#2E7D32]/5 to-[#D79A12]/5 rounded-2xl p-8 border border-[#2E7D32]/10 hover:border-[#2E7D32]/30 transition-all duration-300"
-              >
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-[#2E7D32] mb-2">{coop.count}</div>
-                  <div className="text-sm font-semibold text-[#D79A12] mb-4">RÉGION {coop.region.toUpperCase()}</div>
-                  <div className="space-y-2">
-                    <div className="text-2xl font-bold text-[#5D4037]">{coop.producers}</div>
-                    <div className="text-xs text-[#6B7280]">PRODUCTEURS</div>
-                    <div className="mt-4 pt-4 border-t border-[#E5E7EB]">
-                      <div className="text-sm text-[#5D4037]">{coop.production}</div>
+          <div className="bg-gradient-to-br from-[#2E7D32]/5 to-[#D79A12]/5 rounded-3xl p-8 md:p-12 border border-[#2E7D32]/10 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex-1 text-center md:text-left">
+              <div className="text-6xl font-bold text-[#2E7D32] mb-4">28</div>
+              <h3 className="text-2xl font-bold text-[#5D4037] mb-2">Coopératives Partenaires</h3>
+              <p className="text-[#6B7280] text-lg max-w-xl md:mx-0 mx-auto">
+                Un réseau solide de 28 coopératives réparties sur l'ensemble du territoire ivoirien, garantissant un approvisionnement direct, éthique et de qualité.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 w-full md:w-auto">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="inline-flex justify-center items-center gap-2 px-8 py-4 bg-[#D79A12] text-white font-semibold rounded-xl hover:bg-[#b8820f] transition-all duration-200 shadow-md hover:shadow-lg w-full md:w-auto">
+                    Voir la liste des coopératives
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl max-h-[85vh] p-0 overflow-hidden">
+                  <DialogHeader className="px-6 pt-6 pb-2">
+                    <DialogTitle className="text-2xl font-bold text-[#2E7D32]">
+                      Nos 28 Coopératives Partenaires
+                    </DialogTitle>
+                  </DialogHeader>
+                  <ScrollArea className="h-full max-h-[calc(85vh-100px)] px-6 pb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                      {cooperativesList.map((coop) => (
+                        <div key={coop.id} className="flex items-center gap-4 p-4 rounded-xl bg-white border border-gray-100 shadow-sm hover:border-[#D79A12]/30 hover:shadow-md transition-all">
+                          <div className="flex-shrink-0 w-10 h-10 bg-[#2E7D32]/10 rounded-full flex items-center justify-center text-[#2E7D32] font-bold">
+                            {coop.id}
+                          </div>
+                          <div>
+                            <div className="font-bold text-[#5D4037]">{coop.name}</div>
+                            <div className="text-sm text-[#D79A12] flex items-center gap-1 mt-1">
+                              <MapPin size={14} />
+                              {coop.location}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#2E7D32] text-white font-semibold rounded-lg hover:bg-[#265D28] transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              Rejoindre Notre Réseau
-              <ArrowRight size={20} strokeWidth={1.5} />
-            </Link>
+                  </ScrollArea>
+                </DialogContent>
+              </Dialog>
+              <Link
+                href="/contact"
+                className="inline-flex justify-center items-center gap-2 px-8 py-4 bg-[#2E7D32] text-white font-semibold rounded-xl hover:bg-[#265D28] transition-all duration-200 shadow-md hover:shadow-lg w-full md:w-auto"
+              >
+                Rejoindre Notre Réseau
+                <ArrowRight size={20} strokeWidth={1.5} />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

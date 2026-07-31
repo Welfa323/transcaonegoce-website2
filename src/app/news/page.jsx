@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { Calendar, ExternalLink, FileText } from 'lucide-react';
 
 const News = () => {
@@ -100,7 +101,7 @@ const News = () => {
       </div>
 
       {/* Filter Categories */}
-      <div className="bg-white shadow-sm sticky top-[72px] z-30">
+      <div className="bg-white shadow-sm sticky top-[120px] z-30">
         <div className="max-w-[1280px] mx-auto px-8 py-6">
           <div className="flex gap-4 overflow-x-auto">
             {categories.map((category, index) => (
@@ -129,10 +130,12 @@ const News = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
             >
               <div className="relative h-64 overflow-hidden">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
-                  style={{ backgroundImage: `url(${news.image})` }}
-                ></div>
+                <Image
+                  src={news.image}
+                  alt={news.title}
+                  fill
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
                 <div className="absolute top-4 left-4">
                   <span className="inline-block px-3 py-1 bg-[#D79A12] text-white text-xs font-semibold rounded-full">
                     {news.category}

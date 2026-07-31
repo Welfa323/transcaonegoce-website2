@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import { galleryImages } from '@/data/galleryData';
 
@@ -51,11 +52,12 @@ const Gallery = () => {
               className="break-inside-avoid group relative overflow-hidden rounded-2xl cursor-pointer bg-white shadow-sm hover:shadow-lg transition-all duration-300"
               onClick={() => openLightbox(image, index)}
             >
-              <img
+              <Image
                 src={image.url}
                 alt={image.title}
+                width={800}
+                height={800}
                 className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-6">
                 <div className="text-white">
@@ -103,9 +105,11 @@ const Gallery = () => {
           </button>
 
           <div className="max-w-6xl max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-            <img
+            <Image
               src={selectedImage.url}
               alt={selectedImage.title}
+              width={1200}
+              height={800}
               className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
             />
             <div className="mt-6 text-center">

@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Image from 'next/image';
 import { Leaf, Heart, Users, Shield, Award, Target, Factory, Sprout } from 'lucide-react';
 
 const Sustainability = () => {
@@ -112,16 +113,18 @@ const Sustainability = () => {
     <div className="min-h-screen bg-[#FAFAF8]">
       {/* Hero Section */}
       <div className="relative h-[500px] overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?q=85)',
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32]/90 via-[#2E7D32]/70 to-transparent"></div>
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1586095516671-d085ff58cdd4?q=85"
+            alt="Hero"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32]/90 via-[#2E7D32]/70 to-transparent z-10"></div>
         </div>
         
-        <div className="relative max-w-[1280px] mx-auto px-8 h-full flex items-center">
+        <div className="relative z-20 max-w-[1280px] mx-auto px-8 h-full flex items-center">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 backdrop-blur-sm rounded-full mb-2">
               <Leaf size={20} strokeWidth={1.5} className="text-[#D79A12]" />

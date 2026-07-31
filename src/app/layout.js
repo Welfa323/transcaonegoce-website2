@@ -6,6 +6,9 @@ import { Toaster } from "../components/ui/sonner";
 export const metadata = {
   title: "Transcao Negoce",
   description: "Transcao Negoce Website",
+  icons: {
+    icon: 'https://customer-assets.emergentagent.com/job_cocoa-commerce-7/artifacts/995oywbh_image.png',
+  },
 };
 
 export default function RootLayout({ children }) {
